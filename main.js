@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
+const { Routes } = require('discord-api-types/v10');
 
 const token = process.env.DISCORD_TOKEN;
 const clientId = process.env.CLIENT_ID;
@@ -15,7 +15,7 @@ else {
     routes = Routes.applicationGuildCommands(clientId, guildId);
 }
 
-const rest = new REST({ version: '9' }).setToken(token);
+const rest = new REST().setToken(token);
 rest.get(routes)
     .then(data => {
         const promises = [];
