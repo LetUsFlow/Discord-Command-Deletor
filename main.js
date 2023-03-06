@@ -8,7 +8,7 @@ const clientId = process.env.CLIENT_ID;
 const guildId = process.env.GUILD_ID;
 
 let routes;
-if (guildId == undefined) {
+if (guildId == undefined || guildId.trim() == "") {
     routes = Routes.applicationCommands(clientId);
 }
 else {
