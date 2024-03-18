@@ -8,11 +8,11 @@ const clientId = process.env.CLIENT_ID;
 const guildId = process.env.GUILD_ID;
 
 let routes;
-if (guildId == undefined || guildId.trim() == "") {
-    routes = Routes.applicationCommands(clientId);
+if (guildId) {
+    routes = Routes.applicationGuildCommands(clientId, guildId);
 }
 else {
-    routes = Routes.applicationGuildCommands(clientId, guildId);
+    routes = Routes.applicationCommands(clientId);
 }
 
 const rest = new REST().setToken(token);
