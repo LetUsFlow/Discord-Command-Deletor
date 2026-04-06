@@ -1,5 +1,6 @@
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v10';
+import { RouteLike } from '@discordjs/rest';
 import type {
     RESTGetAPIApplicationCommandsResult,
     RESTGetAPICurrentUserGuildsResult,
@@ -18,12 +19,10 @@ const clientId = requireEnv('CLIENT_ID');
 
 const rest = new REST().setToken(token);
 
-type DiscordRoute = `/${string}`;
-
 const deleteCommands = async (
     label: string,
-    listRoute: DiscordRoute,
-    deleteRouteForId: (commandId: string) => DiscordRoute,
+    listRoute: RouteLike,
+    deleteRouteForId: (commandId: string) => RouteLike,
 ) => {
     const data = await rest.get(listRoute);
     const commands = data as RESTGetAPIApplicationCommandsResult;
