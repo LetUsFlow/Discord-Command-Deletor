@@ -1,6 +1,5 @@
-import { REST } from '@discordjs/rest';
+import { REST, RouteLike } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v10';
-import { RouteLike } from '@discordjs/rest';
 import type {
     RESTGetAPIApplicationCommandsResult,
     RESTGetAPICurrentUserGuildsResult,
